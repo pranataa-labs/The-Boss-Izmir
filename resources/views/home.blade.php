@@ -260,60 +260,67 @@
         </div>
     </section>
 
-    <!-- Contact / Location -->
-    <section id="rezervasyon" class="relative min-h-[80vh] flex items-center justify-center py-20 bg-[#0a0a0a] overflow-hidden">
+    <!-- Contact / Location & Direct Reservation -->
+    <section id="rezervasyon" class="relative min-h-[80vh] flex items-center justify-center py-20 bg-[#0a0a0a] overflow-hidden border-t border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="text-center flex flex-col items-center mb-16">
-                <span class="text-gold tracking-[0.3em] uppercase text-xs mb-4 block">İletişim</span>
-                <h2 class="font-serif text-4xl text-white tracking-widest uppercase font-light mb-6">Bize Ulaşın</h2>
-                <p class="text-zinc-400 font-light text-sm tracking-wide leading-relaxed max-w-md mx-auto">
-                    Özel etkinlikler, rezervasyonlar ve sorularınız için bizimle iletişime geçebilirsiniz. Sizi The Boss'ta ağırlamaktan mutluluk duyarız.
+                <span class="text-gold tracking-[0.3em] uppercase text-xs mb-4 block font-medium">Rezervasyon & İletişim</span>
+                <h2 class="font-serif text-4xl sm:text-5xl text-white tracking-widest uppercase font-light mb-6 text-balance">
+                    Bize <span class="italic text-gold">Ulaşın</span>
+                </h2>
+                <p class="text-zinc-300 font-light text-sm sm:text-base tracking-wide leading-relaxed max-w-lg mx-auto text-pretty">
+                    Özel etkinlikler, VIP masa rezervasyonları ve sorularınız için bizimle anında iletişime geçebilirsiniz.
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-                <div class="order-2 md:order-1 h-[500px] w-full border border-white/5 p-2 rounded-xl overflow-hidden bg-black/50">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Google Maps Embed Card -->
+                <div class="h-[420px] sm:h-[480px] w-full border border-white/10 p-2.5 rounded-2xl overflow-hidden bg-black/60 shadow-2xl">
                     @if(isset($settings['map_url']))
-                        <iframe title="Google Maps Location" src="{{ $settings['map_url'] }}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full rounded-lg"></iframe>
+                        <iframe title="Google Maps Location" src="{{ $settings['map_url'] }}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full rounded-xl grayscale contrast-125 opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500"></iframe>
                     @else
-                        <div class="w-full h-full rounded-lg bg-black flex items-center justify-center text-gray-600 font-light tracking-widest text-xs uppercase">
+                        <div class="w-full h-full rounded-xl bg-zinc-950 flex flex-col items-center justify-center text-zinc-500 font-light tracking-widest text-xs uppercase p-6 text-center">
+                            <svg class="w-8 h-8 text-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
                             Harita Yüklenmedi
                         </div>
                     @endif
                 </div>
                 
-                <div class="order-1 md:order-2 flex flex-col items-center justify-center h-full">
-                    <div class="space-y-10 text-center flex flex-col items-center">
-                        <div>
-                            <h4 class="text-gray-500 font-light tracking-[0.2em] text-xs uppercase mb-2">Telefon / Rezervasyon</h4>
-                            <p class="text-white font-light text-2xl tracking-wider">
-                                @if(isset($settings['contact_phone']))
-                                    <a href="tel:{{ str_replace(' ', '', $settings['contact_phone']) }}" class="hover:text-gold transition-colors duration-300">{{ $settings['contact_phone'] }}</a>
-                                @else
-                                    0553 877 14 00
-                                @endif
-                            </p>
-                        </div>
-                        
-                        <div>
-                            <h4 class="text-gray-500 font-light tracking-[0.2em] text-xs uppercase mb-2">Adres</h4>
-                            <p class="text-white font-light text-xl tracking-wide leading-relaxed max-w-sm">
-                                {{ $settings['address'] ?? "Myvia Bahçe, Bornova / İzmir" }}
-                            </p>
-                        </div>
+                <!-- Contact Action Cards -->
+                <div class="flex flex-col justify-center space-y-8 bg-zinc-950/70 border border-white/10 p-8 sm:p-10 rounded-2xl shadow-2xl backdrop-blur-sm">
+                    <div>
+                        <span class="text-gold tracking-[0.25em] text-[11px] uppercase font-semibold block mb-2">Hızlı Rezervasyon</span>
+                        <h3 class="font-serif text-2xl sm:text-3xl text-white font-medium mb-4">Masanızı Hemen Ayırın</h3>
+                        <p class="text-zinc-400 text-sm font-light leading-relaxed mb-6">
+                            Hafta sonu ve akşam yoğunluklarında yerinizi garantiye almak için telefonla arayabilir veya WhatsApp üzerinden yazabilirsiniz.
+                        </p>
 
-                        <div class="pt-8 flex justify-center gap-8 w-full">
-                            @if(isset($settings['instagram_url']))
-                                <a href="{{ $settings['instagram_url'] }}" target="_blank" class="text-gray-500 hover:text-gold transition-colors duration-300 uppercase tracking-[0.2em] text-sm font-light">
-                                    Instagram
-                                </a>
-                            @endif
-                            @if(isset($settings['facebook_url']))
-                                <a href="{{ $settings['facebook_url'] }}" target="_blank" class="text-gray-500 hover:text-gold transition-colors duration-300 uppercase tracking-[0.2em] text-sm font-light">
-                                    Facebook
-                                </a>
-                            @endif
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            @php
+                                $rawPhone = isset($settings['contact_phone']) ? preg_replace('/\D/', '', $settings['contact_phone']) : '05538771400';
+                                if (str_starts_with($rawPhone, '0')) {
+                                    $waPhone = '90' . substr($rawPhone, 1);
+                                } else {
+                                    $waPhone = $rawPhone;
+                                }
+                            @endphp
+                            <a href="tel:{{ $rawPhone }}" class="inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-full bg-gold text-black font-semibold text-xs uppercase tracking-[0.15em] transition-all duration-300 hover:bg-white hover:scale-[1.02] shadow-lg">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+                                Hemen Ara
+                            </a>
+                            <a href="https://wa.me/{{ $waPhone }}?text={{ rawurlencode('Merhaba The Boss, rezervasyon yaptırmak istiyorum.') }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-black font-semibold text-xs uppercase tracking-[0.15em] transition-all duration-300 hover:scale-[1.02]">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                                WhatsApp Rezervasyon
+                            </a>
                         </div>
+                    </div>
+
+                    <div class="border-t border-white/10 pt-6">
+                        <span class="text-zinc-500 font-light tracking-[0.2em] text-[11px] uppercase block mb-1">Mekan Adresi</span>
+                        <p class="text-zinc-200 font-light text-base sm:text-lg tracking-wide leading-relaxed">
+                            {{ $settings['address'] ?? "Myvia Bahçe, Bornova / İzmir" }}
+                        </p>
                     </div>
                 </div>
             </div>

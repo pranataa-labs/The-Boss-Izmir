@@ -1,5 +1,7 @@
 # ☕ The Boss Hookah & Lounge - Web Application
 
+[`laravel`](https://github.com/topics/laravel) • [`filament`](https://github.com/topics/filament) • [`tailwind`](https://github.com/topics/tailwind) • [`cafe`](https://github.com/topics/cafe) • [`lounge`](https://github.com/topics/lounge) • [`turkish-localization`](https://github.com/topics/turkish-localization) • [`spatie-media-library`](https://github.com/topics/spatie-media-library) • [`mysql`](https://github.com/topics/mysql)
+
 A luxurious, dark-themed, and highly responsive web application built for **The Boss Hookah & Lounge**, a premium cafe and lounge located in Bornova, İzmir. This project features an elegant public-facing landing page and a powerful, fully-localized (Turkish) Admin Panel for content management.
 
 ---
