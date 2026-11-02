@@ -6,6 +6,20 @@ A luxurious, dark-themed, and highly responsive web application built for **The 
 
 ---
 
+## Tangkapan Layar Aplikasi
+
+<p align="center">
+  <b>Halaman Utama & Atmosfer Cafe Lounge</b><br>
+  <img src="screenshots/landing-preview.png" alt="The Boss Hookah & Lounge Landing Preview" width="920">
+</p>
+
+<p align="center">
+  <b>Katalog Menu Digital</b><br>
+  <img src="screenshots/menu-preview.png" alt="The Boss Hookah & Lounge Menu Preview" width="920">
+</p>
+
+---
+
 ## 🚀 Technology Stack
 
 * **Backend:** Laravel 13 (PHP 8.2+)
